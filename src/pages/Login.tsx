@@ -23,39 +23,16 @@ export default function Login() {
     e.preventDefault();
     setIsLoading(true);
 
-    try {
-      // Mock API call - replace with actual FastAPI endpoint
-      const response = await fetch("/api/login", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ username, password }),
+    // For demo purposes, accept any credentials
+    if (username && password) {
+      localStorage.setItem("authToken", "demo-token");
+      window.location.href = "/";
+    } else {
+      toast({
+        title: "Authentication Failed",
+        description: "Please enter both username and password",
+        variant: "destructive",
       });
-
-      if (response.ok) {
-        const data = await response.json();
-        localStorage.setItem("authToken", data.token);
-        window.location.href = "/";
-      } else {
-        toast({
-          title: "Authentication Failed",
-          description: "Invalid username or password",
-          variant: "destructive",
-        });
-      }
-    } catch (error) {
-      // For demo purposes, accept any credentials
-      if (username && password) {
-        localStorage.setItem("authToken", "demo-token");
-        window.location.href = "/";
-      } else {
-        toast({
-          title: "Authentication Failed",
-          description: "Please enter both username and password",
-          variant: "destructive",
-        });
-      }
     }
 
     setIsLoading(false);
