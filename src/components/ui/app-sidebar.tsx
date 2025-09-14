@@ -1,6 +1,10 @@
 import { useState } from "react";
 import { NavLink, useLocation } from "react-router-dom";
-import { Bot, LayoutDashboard, Users, Phone, PhoneCall, Files, LogOut } from "lucide-react";
+import { 
+  Bot, LayoutDashboard, Users, MessageSquare, FileText, 
+  Globe, Database, BarChart3, CreditCard, PhoneCall, 
+  Phone, Files, LogOut 
+} from "lucide-react";
 import {
   Sidebar,
   SidebarContent,
@@ -16,9 +20,15 @@ import {
 import { Button } from "@/components/ui/button";
 
 const navigationItems = [
-  { title: "Chatbot", url: "/", icon: Bot },
   { title: "Dashboard", url: "/dashboard", icon: LayoutDashboard },
-  { title: "Assistants", url: "/assistants", icon: Users },
+  { title: "Leads", url: "/leads", icon: Users },
+  { title: "Campaigns", url: "/campaigns", icon: MessageSquare },
+  { title: "Templates", url: "/templates", icon: FileText },
+  { title: "Website Connect", url: "/website-connect", icon: Globe },
+  { title: "CRM Integration", url: "/crm-integration", icon: Database },
+  { title: "Reports", url: "/reports", icon: BarChart3 },
+  { title: "Subscription", url: "/subscription", icon: CreditCard },
+  { title: "Assistants", url: "/assistants", icon: Bot },
   { title: "Calls", url: "/calls", icon: PhoneCall },
   { title: "Phone Numbers", url: "/phone-numbers", icon: Phone },
   { title: "Files", url: "/files", icon: Files },
@@ -49,7 +59,7 @@ export function AppSidebar() {
           {!isCollapsed && (
             <div>
               <h1 className="text-lg font-semibold text-sidebar-foreground">
-                Autonyze Orbit
+                CommSaaS Pro
               </h1>
             </div>
           )}

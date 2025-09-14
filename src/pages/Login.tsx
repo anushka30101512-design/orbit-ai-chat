@@ -28,22 +28,27 @@ export default function Login() {
     setIsLoading(true);
 
     try {
-      const response = await apiService.login(username, password);
-      
-      toast({
-        title: "Login Successful",
-        description: "Welcome back! Redirecting to dashboard...",
-      });
+      // Frontend-only validation for demo
+      if (username === "user" && password === "user123") {
+        localStorage.setItem("authToken", "demo-token-" + Date.now());
+        
+        toast({
+          title: "Login Successful",
+          description: "Welcome back! Redirecting to dashboard...",
+        });
 
-      // Redirect to dashboard after successful login
-      setTimeout(() => {
-        window.location.href = "/dashboard";
-      }, 1000);
+        // Redirect to dashboard after successful login
+        setTimeout(() => {
+          window.location.href = "/dashboard";
+        }, 1000);
+      } else {
+        throw new Error("Invalid credentials");
+      }
 
     } catch (error: any) {
       toast({
         title: "Authentication Failed",
-        description: error.message || "Invalid admin credentials. Please contact your administrator.",
+        description: "Invalid credentials. Use username: 'user' and password: 'user123'",
         variant: "destructive",
       });
     } finally {

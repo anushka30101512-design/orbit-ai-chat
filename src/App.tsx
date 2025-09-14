@@ -5,8 +5,14 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import { Layout } from "@/components/layout/Layout";
 import Login from "./pages/Login";
-import Chatbot from "./pages/Chatbot";
 import Dashboard from "./pages/Dashboard";
+import Leads from "./pages/Leads";
+import Campaigns from "./pages/Campaigns";
+import Templates from "./pages/Templates";
+import WebsiteConnect from "./pages/WebsiteConnect";
+import CRMIntegration from "./pages/CRMIntegration";
+import Reports from "./pages/Reports";
+import Subscription from "./pages/Subscription";
 import Assistants from "./pages/Assistants";
 import Calls from "./pages/Calls";
 import PhoneNumbers from "./pages/PhoneNumbers";
@@ -31,12 +37,47 @@ const App = () => (
           <Route path="/login" element={<Login />} />
           <Route path="/" element={
             <ProtectedRoute>
-              <Chatbot />
+              <Dashboard />
             </ProtectedRoute>
           } />
           <Route path="/dashboard" element={
             <ProtectedRoute>
               <Dashboard />
+            </ProtectedRoute>
+          } />
+          <Route path="/leads" element={
+            <ProtectedRoute>
+              <Leads />
+            </ProtectedRoute>
+          } />
+          <Route path="/campaigns" element={
+            <ProtectedRoute>
+              <Campaigns />
+            </ProtectedRoute>
+          } />
+          <Route path="/templates" element={
+            <ProtectedRoute>
+              <Templates />
+            </ProtectedRoute>
+          } />
+          <Route path="/website-connect" element={
+            <ProtectedRoute>
+              <WebsiteConnect />
+            </ProtectedRoute>
+          } />
+          <Route path="/crm-integration" element={
+            <ProtectedRoute>
+              <CRMIntegration />
+            </ProtectedRoute>
+          } />
+          <Route path="/reports" element={
+            <ProtectedRoute>
+              <Reports />
+            </ProtectedRoute>
+          } />
+          <Route path="/subscription" element={
+            <ProtectedRoute>
+              <Subscription />
             </ProtectedRoute>
           } />
           <Route path="/assistants" element={
