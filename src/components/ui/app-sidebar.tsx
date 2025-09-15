@@ -59,7 +59,7 @@ export function AppSidebar() {
           {!isCollapsed && (
             <div>
               <h1 className="text-lg font-semibold text-sidebar-foreground">
-                CommSaaS Pro
+                Orbit
               </h1>
             </div>
           )}
