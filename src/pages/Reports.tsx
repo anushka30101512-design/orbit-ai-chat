@@ -207,7 +207,10 @@ export default function Reports() {
                       <SelectItem value="audit">Audit</SelectItem>
                     </SelectContent>
                   </Select>
-                  <DatePickerWithRange onChange={(range) => console.log(range)} />
+                  <DatePickerWithRange 
+                    date={undefined} 
+                    setDate={(range) => console.log(range)} 
+                  />
                 </div>
               </div>
             </CardHeader>
